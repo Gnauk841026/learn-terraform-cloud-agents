@@ -1,6 +1,3 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
 terraform {
   required_providers {
     docker = {
@@ -9,7 +6,9 @@ terraform {
   }
 }
 
-provider "docker" {}
+provider "docker" {
+  host = "tcp://localhost:2375"
+}
 
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
